@@ -13,10 +13,83 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Resource Files\graphics">
+      <UniqueIdentifier>{fb299980-9ec0-4526-957e-6465a8258630}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\sound">
+      <UniqueIdentifier>{e5534d3e-cd9d-4f8e-a0f7-405224052763}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\fonts">
+      <UniqueIdentifier>{283bed46-5075-4d15-a8c0-5cc0f8b77167}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\levels">
+      <UniqueIdentifier>{f8117fc3-7d06-42dc-bcb5-1c81bf6e83ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\shaders">
+      <UniqueIdentifier>{71a98dab-9aa4-4497-a1be-5bee888312de}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="graphics\background.png">
+      <Filter>Resource Files\graphics</Filter>
+    </Image>
+    <Image Include="graphics\bob.png">
+      <Filter>Resource Files\graphics</Filter>
+    </Image>
+    <Image Include="graphics\thomas.png">
+      <Filter>Resource Files\graphics</Filter>
+    </Image>
+    <Image Include="graphics\tiles_sheet.png">
+      <Filter>Resource Files\graphics</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="fonts\DS-DIGI.TTF">
+      <Filter>Resource Files\fonts</Filter>
+    </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="sound\fallinfire.wav">
+      <Filter>Resource Files\sound</Filter>
+    </Media>
+    <Media Include="sound\fallinwater.wav">
+      <Filter>Resource Files\sound</Filter>
+    </Media>
+    <Media Include="sound\fire1.wav">
+      <Filter>Resource Files\sound</Filter>
+    </Media>
+    <Media Include="sound\jump.wav">
+      <Filter>Resource Files\sound</Filter>
+    </Media>
+    <Media Include="sound\reachgoal.wav">
+      <Filter>Resource Files\sound</Filter>
+    </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="levels\level1.txt">
+      <Filter>Resource Files\levels</Filter>
+    </Text>
+    <Text Include="levels\level2.txt">
+      <Filter>Resource Files\levels</Filter>
+    </Text>
+    <Text Include="levels\level3.txt">
+      <Filter>Resource Files\levels</Filter>
+    </Text>
+    <Text Include="levels\level4.txt">
+      <Filter>Resource Files\levels</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shaders\rippleShader.frag">
+      <Filter>Resource Files\shaders</Filter>
+    </None>
+    <None Include="shaders\vertShader.vert">
+      <Filter>Resource Files\shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -133,6 +133,32 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="graphics\background.png" />
+    <Image Include="graphics\bob.png" />
+    <Image Include="graphics\thomas.png" />
+    <Image Include="graphics\tiles_sheet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="fonts\DS-DIGI.TTF" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="sound\fallinfire.wav" />
+    <Media Include="sound\fallinwater.wav" />
+    <Media Include="sound\fire1.wav" />
+    <Media Include="sound\jump.wav" />
+    <Media Include="sound\reachgoal.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="levels\level1.txt" />
+    <Text Include="levels\level2.txt" />
+    <Text Include="levels\level3.txt" />
+    <Text Include="levels\level4.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shaders\rippleShader.frag" />
+    <None Include="shaders\vertShader.vert" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
