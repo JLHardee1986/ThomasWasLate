@@ -72,6 +72,9 @@
     <ClCompile Include="Bob.cpp">
       <Filter>Source Files\ThomasAndBob</Filter>
     </ClCompile>
+    <ClCompile Include="LevelManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="graphics\background.png">
@@ -149,6 +152,9 @@
     </ClInclude>
     <ClInclude Include="Bob.h">
       <Filter>Header Files\ThomasAndBob</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelManager.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

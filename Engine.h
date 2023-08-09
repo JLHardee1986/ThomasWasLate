@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "TextureHolder.h"
+#include "LevelManager.h"
 #include "Bob.h"
 #include "Thomas.h"
 
@@ -13,6 +14,9 @@ class Engine
 	// Thomas and his friend, Bob
 	Thomas m_thomas;
 	Bob m_bob;
+
+	// A class to manage all the levels
+	LevelManager m_lMgr;
 	
 	const int TILE_SIZE = 50;
 	const int VERTS_IN_QUAD = 4;
@@ -55,6 +59,16 @@ class Engine
 
 	// Is it time for a new / first level?
 	bool m_newLevelRequired = true;
+
+	// The vertex array for the level tiles
+	sf::VertexArray m_vertArrLevel;
+
+	// the 2d array with the map for the level
+	// a pointer to a pointer
+	int** m_arrayLevel = nullptr;
+
+	// Texture for the level tiles
+	sf::Texture m_textureTiles;
 
 	// private functions for internal use
 	void input();

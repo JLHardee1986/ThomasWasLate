@@ -8,14 +8,11 @@ void Engine::update(float dtAsSeconds)
 	{
 		// These calls to spawn will be moved to a new loadLevel() function soon
 		// loadLevel() function soon
-		// Spawn Thomas and Bob
-		m_thomas.spawn(Vector2f(0, 0), (float)GRAVITY);
-		m_bob.spawn(Vector2f(100,0), (float)GRAVITY);
+		
 
-		// Make sure the spawn is called only once
-		m_timeRemaining = 10;
-		m_newLevelRequired = false;
-		m_playing = true;
+		// Load a level
+		loadLevel();
+
 	}
 
 	if (m_playing)
