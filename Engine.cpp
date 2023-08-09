@@ -7,10 +7,10 @@ Engine::Engine()
 	// Get the screen resolution
 	// and create an SFML window and View
 	Vector2f resolution;
-	resolution.x = VideoMode::getDesktopMode().width;
-	resolution.y = VideoMode::getDesktopMode().height;
+	resolution.x = (float)VideoMode::getDesktopMode().width;
+	resolution.y = (float)VideoMode::getDesktopMode().height;
 
-	m_window.create(VideoMode(resolution.x, resolution.y), "Thomas Was Late", Style::Fullscreen);
+	m_window.create(VideoMode((unsigned int)resolution.x, (unsigned int)resolution.y), "Thomas Was Late", Style::Fullscreen);
 
 	// Initialize the fullscreen view
 	m_mainView.setSize(resolution);

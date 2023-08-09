@@ -9,7 +9,7 @@ class LevelManager
 {
 
 	sf::Vector2i m_levelSize;
-	sf::Vector2f m_startPosition;
+	sf::Vector2f m_startPosition{0.f, 0.f};
 
 	float m_timeModifier = 1;
 	float m_baseTimeLimit = 0;

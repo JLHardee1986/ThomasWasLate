@@ -76,7 +76,7 @@ class Engine
 	void draw();
 
 	void loadLevel();
-	bool detectCollisions();
+	bool detectCollisions(PlayableCharacter& character);
 public:
 
 	// The engine constructor

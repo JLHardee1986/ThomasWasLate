@@ -23,7 +23,7 @@ void Engine::loadLevel()
 
 	// Spawn Thomas and Bob
 	m_thomas.spawn(m_lMgr.getStartPosition(), (float)GRAVITY);
-	m_bob.spawn(m_lMgr.getStartPosition(), (float)GRAVITY);
+	m_bob.spawn(m_lMgr.getStartPosition() + Vector2f( 100.f, 0.f ), (float)GRAVITY);
 
 	//  make sure this code is not ran twice in a row
 	m_newLevelRequired = false;

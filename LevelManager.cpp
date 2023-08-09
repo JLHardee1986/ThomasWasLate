@@ -82,7 +82,7 @@ int** LevelManager::nextLevel(sf::VertexArray& rVaLevel)
 	}
 
 	// Store the length of the rows
-	m_levelSize.x = s.length();
+	m_levelSize.x = (int)s.length();
 
 	// go back to the start of the file
 	inputFile.clear();
@@ -129,27 +129,27 @@ int** LevelManager::nextLevel(sf::VertexArray& rVaLevel)
 		for (int y = 0; y < m_levelSize.y; y++)
 		{
 			// Position each vertex in the current quad
-			rVaLevel[currentVertex + 0].position = Vector2f(x * TILE_SIZE, y * TILE_SIZE);
+			rVaLevel[currentVertex + 0].position = Vector2f((float)x * (float)TILE_SIZE, (float)y * (float)TILE_SIZE);
 
-			rVaLevel[currentVertex + 1].position = Vector2f((x * TILE_SIZE) + TILE_SIZE, y * TILE_SIZE);
+			rVaLevel[currentVertex + 1].position = Vector2f(((float)x * (float)TILE_SIZE) + (float)TILE_SIZE, (float)y * (float)TILE_SIZE);
 
-			rVaLevel[currentVertex + 2].position = Vector2f((x * TILE_SIZE) + TILE_SIZE, (y * TILE_SIZE) + TILE_SIZE);
+			rVaLevel[currentVertex + 2].position = Vector2f(((float)x * (float)TILE_SIZE) + (float)TILE_SIZE, ((float)y * (float)TILE_SIZE) + (float)TILE_SIZE);
 
-			rVaLevel[currentVertex + 3].position = Vector2f(x * TILE_SIZE, (y * TILE_SIZE) + TILE_SIZE);
+			rVaLevel[currentVertex + 3].position = Vector2f((float)x * (float)TILE_SIZE, ((float)y * (float)TILE_SIZE) + (float)TILE_SIZE);
 
 			// Which tile from the sprite sheet should we use
 			int verticalOffset = arrayLevel[y][x] * TILE_SIZE;
 
-			rVaLevel[currentVertex + 0].texCoords = Vector2f(0, 0 + verticalOffset);
+			rVaLevel[currentVertex + 0].texCoords = Vector2f(0.f, 0.f + verticalOffset);
 
-			rVaLevel[currentVertex + 1].texCoords = Vector2f(TILE_SIZE, 0 + verticalOffset);
+			rVaLevel[currentVertex + 1].texCoords = Vector2f((float)TILE_SIZE, 0.f + verticalOffset);
 
-			rVaLevel[currentVertex + 2].texCoords = Vector2f(TILE_SIZE, TILE_SIZE + verticalOffset);
+			rVaLevel[currentVertex + 2].texCoords = Vector2f((float)TILE_SIZE, (float)TILE_SIZE + verticalOffset);
 
-			rVaLevel[currentVertex + 3].texCoords = Vector2f(0, TILE_SIZE + verticalOffset);
+			rVaLevel[currentVertex + 3].texCoords = Vector2f(0.f, (float)TILE_SIZE + verticalOffset);
 
 			// Position ready for the next four vertices
-			currentVertex = currentVertex + VERTS_IN_QUAD;
+			currentVertex = currentVertex + (int)VERTS_IN_QUAD;
 		}
 	}
 	return arrayLevel;
