@@ -28,10 +28,49 @@
     <Filter Include="Resource Files\shaders">
       <UniqueIdentifier>{71a98dab-9aa4-4497-a1be-5bee888312de}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\engine">
+      <UniqueIdentifier>{08b39cfc-e8c8-4428-87c2-6f7b2e023428}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ThomasAndBob">
+      <UniqueIdentifier>{148d18c6-2e1b-45db-a6f9-c08eeb1f8495}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ThomasAndBob">
+      <UniqueIdentifier>{0ed6261d-7ac8-49dd-b94f-241c85310339}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureHolder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="draw.cpp">
+      <Filter>Source Files\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="input.cpp">
+      <Filter>Source Files\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="update.cpp">
+      <Filter>Source Files\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>Source Files\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="detectCollisions.cpp">
+      <Filter>Source Files\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="loadLevel.cpp">
+      <Filter>Source Files\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Thomas.cpp">
+      <Filter>Source Files\ThomasAndBob</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayableCharacter.cpp">
+      <Filter>Source Files\ThomasAndBob</Filter>
+    </ClCompile>
+    <ClCompile Include="Bob.cpp">
+      <Filter>Source Files\ThomasAndBob</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -50,6 +89,9 @@
   </ItemGroup>
   <ItemGroup>
     <Font Include="fonts\DS-DIGI.TTF">
+      <Filter>Resource Files\fonts</Filter>
+    </Font>
+    <Font Include="fonts\Roboto-Light.ttf">
       <Filter>Resource Files\fonts</Filter>
     </Font>
   </ItemGroup>
@@ -91,5 +133,22 @@
     <None Include="shaders\vertShader.vert">
       <Filter>Resource Files\shaders</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Engine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureHolder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Thomas.h">
+      <Filter>Header Files\ThomasAndBob</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayableCharacter.h">
+      <Filter>Header Files\ThomasAndBob</Filter>
+    </ClInclude>
+    <ClInclude Include="Bob.h">
+      <Filter>Header Files\ThomasAndBob</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
