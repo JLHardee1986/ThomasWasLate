@@ -71,9 +71,9 @@ void PlayableCharacter::stopJump()
 	m_isFalling = true;
 }
 
-sf::Vector2f PlayableCharacter::getCenter()
+Vector2f PlayableCharacter::getCenter()
 {
-	return sf::Vector2f();
+	return (Vector2f(this->m_position.x + (this->getSprite().getTexture()->getSize().x / 2.f), this->m_position.y + (this->getSprite().getTexture()->getSize().y / 2.f)));
 }
 
 void PlayableCharacter::update(float elapsedTime)

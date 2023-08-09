@@ -18,7 +18,7 @@ class Engine
 	const int VERTS_IN_QUAD = 4;
 
 	// Force pushing characters down
-	const int GRAVITY = 0;
+	const int GRAVITY = 300;
 
 	// regular RenderWindow
 	sf::RenderWindow  m_window;
