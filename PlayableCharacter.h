@@ -30,7 +30,7 @@ protected:
 
 	// Is character currently jumping or falling
 	bool m_isJumping;
-	bool m_isFalling;
+	bool m_isFalling{ true };
 
 	// WHich directions is the character currently moving in
 	bool m_leftPressed;

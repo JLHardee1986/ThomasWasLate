@@ -1,27 +1,27 @@
 #include "Engine.h"
 
 using namespace sf;
+using namespace std;
+#include <vector>
 
 void Engine::update(float dtAsSeconds)
 {
+	
 	if (m_newLevelRequired)
 	{
 		// These calls to spawn will be moved to a new loadLevel() function soon
 		// loadLevel() function soon
-		
+
 
 		// Load a level
 		loadLevel();
 
-	}
-
+	} 
 	if (m_playing)
 	{
-		// Update Thomas
-		m_thomas.update(dtAsSeconds);
+		
 
-		// Update Bob
-		m_bob.update(dtAsSeconds);
+		
 
 		// Detect collisions and see if characters
 		// have reached the goal tile
@@ -33,12 +33,19 @@ void Engine::update(float dtAsSeconds)
 			m_newLevelRequired = true;
 
 			// Play the reach goal sound
+			m_sMgr.playReachGoal();
 		}
 		else
 		{
 			// Run bobs collision detection
 			detectCollisions(m_bob);
 		}
+
+		// Update Thomas
+		m_thomas.update(dtAsSeconds);
+
+		// Update Bob
+		m_bob.update(dtAsSeconds);
 
 		// Let bob and thomas jump on each other's heads
 		if (m_bob.getFeet().intersects(m_thomas.getHead()))
@@ -50,14 +57,40 @@ void Engine::update(float dtAsSeconds)
 			m_thomas.stopFalling(m_bob.getHead().top);
 		}
 		// count down the time the player has left
-		m_timeRemaining -= dtAsSeconds;
+		//m_timeRemaining -= dtAsSeconds;
 
 		// Have Thomas and Bob run out of time
-		if (m_timeRemaining <= 0)
-		{
-			m_newLevelRequired = true;
-		}
+		//if (m_timeRemaining <= 0)
+		//{
+		//	m_newLevelRequired = true;
+		//}
 	} // END of  --  if (m_playing)
+
+
+	// Sound checks
+	// Check if a fire sound needs to be played
+	vector<Vector2f>::iterator it;
+
+	// Iterate through the vector of Vector2f objects
+	for (it = m_fireEmitters.begin(); it != m_fireEmitters.end(); it++)
+	{
+		// Where is this emitter?
+		// Store the location in pos
+		float posX = (*it).x;
+		float posY = (*it).y;
+		// is the emitter near the player?
+		// Make a 500 pixel rectangle around the emitter
+		FloatRect localRect(posX - 250, posY - 250, 500, 500);
+		// Is the player inside localRect?
+		if (m_thomas.getPosition().intersects(localRect))
+		{
+			// Play the sound and pass in the location as well
+			m_sMgr.playFire(Vector2f(posX, posY), m_thomas.getCenter());
+		}
+	}
+	
+	m_rs.setPosition({ m_thomas.getPosition().left, m_thomas.getPosition().top });
+	m_rsBob.setPosition({ m_bob.getPosition().left, m_bob.getPosition().top });
 
 	// Set the appropriate view around the appropriate character
 	if (m_splitScreen)

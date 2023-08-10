@@ -5,6 +5,7 @@
 
 class Thomas : public PlayableCharacter
 {
+	bool dontJumpAgain {false};
 public:
 	Thomas();
 

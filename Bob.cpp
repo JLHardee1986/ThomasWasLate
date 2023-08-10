@@ -13,7 +13,7 @@ Bob::Bob()
 
 bool Bob::handleInput()
 {
-	m_justJumped = false;
+	this->m_justJumped = false;
 
 	if (Keyboard::isKeyPressed(Keyboard::Up))
 	{
@@ -29,8 +29,8 @@ bool Bob::handleInput()
 	}
 	else
 	{
-		m_isJumping = false;
-		m_isFalling = true;
+		//m_isJumping = false;
+		//m_isFalling = true;
 	}
 
 	if (Keyboard::isKeyPressed(Keyboard::Left))

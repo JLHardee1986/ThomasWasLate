@@ -44,11 +44,14 @@ void Engine::input()
 	if (m_thomas.handleInput())
 	{
 		// play a jump sound
+		m_sMgr.playJump();
 	}
 
 	// Handle input specific to Bob
 	if (m_bob.handleInput())
 	{
 		// Play a jump sound
+		m_sMgr.playJump();
+
 	}
 }

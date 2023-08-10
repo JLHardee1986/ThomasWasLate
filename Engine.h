@@ -4,11 +4,15 @@
 #include <SFML/Graphics.hpp>
 #include "TextureHolder.h"
 #include "LevelManager.h"
+#include "SoundManager.h"
 #include "Bob.h"
 #include "Thomas.h"
 
 class Engine
 {
+
+	bool m_fullscreen{ false };
+
 	TextureHolder th;
 
 	// Thomas and his friend, Bob
@@ -17,6 +21,9 @@ class Engine
 
 	// A class to manage all the levels
 	LevelManager m_lMgr;
+
+	// Create a sound manager
+	SoundManager m_sMgr;
 	
 	const int TILE_SIZE = 50;
 	const int VERTS_IN_QUAD = 4;
@@ -43,6 +50,8 @@ class Engine
 	// for the background
 	sf::Sprite m_backgroundSprite;
 	sf::Texture m_backgroundTexture;
+	sf::RectangleShape m_rs;
+	sf::RectangleShape m_rsBob;
 
 	// IS the game currently playing
 	bool m_playing = false;
@@ -77,6 +86,12 @@ class Engine
 
 	void loadLevel();
 	bool detectCollisions(PlayableCharacter& character);
+
+	// Make a vector of the best places to emit sounds from
+	void populateEmitters(std::vector<sf::Vector2f>& vSoundEmitters, int** arrayLevel);
+
+	// A vector of Vector2ffor the fire emitter locations
+	std::vector<sf::Vector2f> m_fireEmitters;
 public:
 
 	// The engine constructor

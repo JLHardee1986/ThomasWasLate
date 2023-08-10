@@ -4,14 +4,35 @@ using namespace sf;
 
 Engine::Engine()
 {
+	
+	m_rs.setFillColor(Color(0, 0, 0, 0));
+	m_rs.setOutlineColor(Color(255, 255, 255, 255));
+	m_rs.setOutlineThickness(2.f);
+	m_rs.setSize(Vector2f(m_thomas.getSprite().getGlobalBounds().getSize()));
+	m_rs.setPosition({ m_thomas.getPosition().left, m_thomas.getPosition().top });
+
+	m_rsBob.setFillColor(Color(0, 0, 0, 0));
+	m_rsBob.setOutlineColor(Color(255, 255, 255, 255));
+	m_rsBob.setOutlineThickness(2.f);
+	m_rsBob.setSize(Vector2f(m_bob.getSprite().getGlobalBounds().getSize()));
+	m_rsBob.setPosition({ m_bob.getPosition().left, m_bob.getPosition().top });
+
 	// Get the screen resolution
 	// and create an SFML window and View
 	Vector2f resolution;
 	resolution.x = (float)VideoMode::getDesktopMode().width;
 	resolution.y = (float)VideoMode::getDesktopMode().height;
 
-	m_window.create(VideoMode((unsigned int)resolution.x, (unsigned int)resolution.y), "Thomas Was Late", Style::Fullscreen);
+	if (m_fullscreen)
+	{
+		m_window.create(VideoMode({ (unsigned int)resolution.x, (unsigned int)resolution.y }), "Thomas Was Late", Style::Fullscreen);
+	}
+	else
+	{
+		m_window.create(VideoMode({ (unsigned int)1280, (unsigned int)720 }), "Thomas Was Late", Style::Default);
+	}
 
+	//m_window.setFramerateLimit(60);
 	// Initialize the fullscreen view
 	m_mainView.setSize(resolution);
 	m_hudView.reset(FloatRect(0, 0, resolution.x, resolution.y));
@@ -53,8 +74,11 @@ void Engine::run()
 		// call each part of the game loop in turn
 		input();
 
+		draw();
+
 		update(dtAsSeconds);
 
-		draw();
+		
+
 	}
 }

@@ -18,9 +18,12 @@ void Engine::draw()
 
 		// Draw Thomas
 		m_window.draw(m_thomas.getSprite());
+		m_window.draw(m_rs);
 
 		// Draw Bob
 		m_window.draw(m_bob.getSprite());
+		m_window.draw(m_rsBob);
+
 	}
 	else
 	{
@@ -40,9 +43,12 @@ void Engine::draw()
 
 		// Draw Bob
 		m_window.draw(m_bob.getSprite());	
+		m_window.draw(m_rsBob);
+
 
 		// Draw Thomas
 		m_window.draw(m_thomas.getSprite());
+		m_window.draw(m_rs);
 
 
 		// Now draw Bob's side of the screen
@@ -59,9 +65,13 @@ void Engine::draw()
 
 		// Draw Thomas
 		m_window.draw(m_thomas.getSprite());
+		m_window.draw(m_rs);
+
 
 		// Draw Bob
 		m_window.draw(m_bob.getSprite());
+		m_window.draw(m_rsBob);
+
 	}
 
 	// Draw the HUD

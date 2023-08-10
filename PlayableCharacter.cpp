@@ -54,6 +54,7 @@ void PlayableCharacter::stopFalling(float position)
 
 void PlayableCharacter::stopRight(float position)
 {
+
 	m_position.x = position - m_sprite.getGlobalBounds().width;
 	m_sprite.setPosition(m_position);
 }
@@ -66,14 +67,14 @@ void PlayableCharacter::stopLeft(float position)
 
 void PlayableCharacter::stopJump()
 {
-	// stop a jump early
+	// Stop a jump early 
 	m_isJumping = false;
 	m_isFalling = true;
 }
 
 Vector2f PlayableCharacter::getCenter()
 {
-	return (Vector2f(this->m_position.x + (this->getSprite().getTexture()->getSize().x / 2.f), this->m_position.y + (this->getSprite().getTexture()->getSize().y / 2.f)));
+	return Vector2f(m_position.x + m_sprite.getGlobalBounds().width / 2, m_position.y + m_sprite.getGlobalBounds().height / 2);
 }
 
 void PlayableCharacter::update(float elapsedTime)
@@ -118,26 +119,26 @@ void PlayableCharacter::update(float elapsedTime)
 
 	// Feet
 	m_feet.left = r.left + 3;
-	m_feet.top = r.top + r.height - 1;
+	m_feet.top = r.top + r.height - 30;
 	m_feet.width = r.width - 6;
-	m_feet.height = 1;
+	m_feet.height = 10;
 
 	// Head
-	m_head.left = r.left;
-	m_head.top = r.top + (r.height * .3f);
-	m_head.width = r.width;
-	m_head.height = 1;
+	m_head.left = r.left + 2;
+	m_head.top = r.top + 2;
+	m_head.width = r.width - 6;
+	m_head.height = r.height * 0.3f;
 
 	// Right
-	m_right.left = r.left + r.width - 2;
+	m_right.left = r.left + r.width - 10;
 	m_right.top = r.top + r.height * .35f;
-	m_right.width = 1;
+	m_right.width = 10;
 	m_right.height = r.height * 0.3f;
 
 	// Left
 	m_left.left = r.left;
-	m_left.top = r.top + r.height * 0.5f;
-	m_left.width = 1;
+	m_left.top = r.top + r.height * 0.35f;
+	m_left.width = 10;
 	m_left.height = r.height * 0.3f;
 
 	// Move the sprite into position

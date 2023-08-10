@@ -3,7 +3,9 @@
 #include <string>
 #include <sstream>
 #include <fstream>
-
+#include <functional>
+#include <memory>
+#include <iostream>
 
 using namespace sf;
 using namespace std;
@@ -82,7 +84,7 @@ int** LevelManager::nextLevel(sf::VertexArray& rVaLevel)
 	}
 
 	// Store the length of the rows
-	m_levelSize.x = (int)s.length();
+	m_levelSize.x = s.length();
 
 	// go back to the start of the file
 	inputFile.clear();
@@ -90,6 +92,9 @@ int** LevelManager::nextLevel(sf::VertexArray& rVaLevel)
 
 	// Prepare the 2D array to hold the int values from the file
 	int** arrayLevel = new int* [m_levelSize.y];
+	
+	
+
 	for (int i = 0; i < m_levelSize.y; ++i)
 	{
 		// Add a new array into each array element
@@ -100,10 +105,12 @@ int** LevelManager::nextLevel(sf::VertexArray& rVaLevel)
 	// the values in the 2d array
 	string row;
 	int y = 0;
+
 	while (inputFile >> row)
 	{
-		for (int x = 0; x < row.length(); x++)
+		for (int x = 0; x <= row.length(); x++)
 		{
+			
 			const char val = row[x];
 			arrayLevel[y][x] = atoi(&val);
 		}
@@ -116,6 +123,7 @@ int** LevelManager::nextLevel(sf::VertexArray& rVaLevel)
 
 	// What type of primitive are we using
 	rVaLevel.setPrimitiveType(Quads);
+	
 
 	// Set the size of the vertex array
 	rVaLevel.resize(m_levelSize.x * m_levelSize.y * VERTS_IN_QUAD);
@@ -123,10 +131,10 @@ int** LevelManager::nextLevel(sf::VertexArray& rVaLevel)
 	// Start at the beginning of the vertex array
 	int currentVertex = 0;
 
-	for (int x = 0; x < m_levelSize.x; x++)
+	for (int y = 0; y < m_levelSize.y; y++)
 	{
 
-		for (int y = 0; y < m_levelSize.y; y++)
+		for (int x = 0; x < m_levelSize.x; x++)
 		{
 			// Position each vertex in the current quad
 			rVaLevel[currentVertex + 0].position = Vector2f((float)x * (float)TILE_SIZE, (float)y * (float)TILE_SIZE);
