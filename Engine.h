@@ -7,6 +7,7 @@
 #include "SoundManager.h"
 #include "Bob.h"
 #include "Thomas.h"
+#include "Hud.h"
 
 class Engine
 {
@@ -24,6 +25,11 @@ class Engine
 
 	// Create a sound manager
 	SoundManager m_sMgr;
+
+	// The Hud
+	Hud m_Hud;
+	int m_FramesSinceLastHUDUpdate = 0;
+	int m_TargetFramesPerHUDUpdate = 500;
 	
 	const int TILE_SIZE = 50;
 	const int VERTS_IN_QUAD = 4;

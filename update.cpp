@@ -3,6 +3,8 @@
 using namespace sf;
 using namespace std;
 #include <vector>
+#include <sstream>
+
 
 void Engine::update(float dtAsSeconds)
 {
@@ -57,13 +59,13 @@ void Engine::update(float dtAsSeconds)
 			m_thomas.stopFalling(m_bob.getHead().top);
 		}
 		// count down the time the player has left
-		//m_timeRemaining -= dtAsSeconds;
+		m_timeRemaining -= dtAsSeconds;
 
 		// Have Thomas and Bob run out of time
-		//if (m_timeRemaining <= 0)
-		//{
-		//	m_newLevelRequired = true;
-		//}
+		if (m_timeRemaining <= 0)
+		{
+			m_newLevelRequired = true;
+		}
 	} // END of  --  if (m_playing)
 
 
@@ -113,5 +115,25 @@ void Engine::update(float dtAsSeconds)
 			m_mainView.setCenter(m_bob.getCenter());
 		}
 
+	}
+
+	// Time to update the HUD?
+ // Increment the number of frames since 
+ // the last HUD calculation
+	m_FramesSinceLastHUDUpdate++;
+	// Update the HUD every m_TargetFramesPerHUDUpdate frames
+	if (m_FramesSinceLastHUDUpdate > m_TargetFramesPerHUDUpdate)
+	{
+		// Update game HUD text
+		stringstream ssTime;
+		stringstream ssLevel;
+		// Update the time text
+		ssTime << (int)m_timeRemaining;
+		m_Hud.setTime(ssTime.str());
+		// Update the level text
+		ssLevel << "Level:" << m_lMgr.getCurrentLevel();
+		m_Hud.setLevel(ssLevel.str());
+	
+		m_FramesSinceLastHUDUpdate = 0;
 	}
 }

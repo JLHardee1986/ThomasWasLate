@@ -13,13 +13,9 @@ void Engine::loadLevel()
 
 	if (m_arrayLevel)
 	{
-	
-		// Delete the previously allocated memory
-		for (int i = 0; i < m_lMgr.getLevelSize().y; i++)
-		{
-			delete[] m_arrayLevel[i];
-		}
+		
 		delete[] m_arrayLevel;
+		m_arrayLevel = nullptr;
 	}
 
 	// Load the next 2d array with the map for the level

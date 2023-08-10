@@ -135,6 +135,7 @@
     <ClCompile Include="detectCollisions.cpp" />
     <ClCompile Include="draw.cpp" />
     <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="Hud.cpp" />
     <ClCompile Include="input.cpp" />
     <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="loadLevel.cpp" />
@@ -176,6 +177,7 @@
   <ItemGroup>
     <ClInclude Include="Bob.h" />
     <ClInclude Include="Engine.h" />
+    <ClInclude Include="Hud.h" />
     <ClInclude Include="LevelManager.h" />
     <ClInclude Include="PlayableCharacter.h" />
     <ClInclude Include="SoundManager.h" />
