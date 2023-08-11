@@ -61,6 +61,8 @@ class Engine
 	sf::RectangleShape m_rs;
 	sf::RectangleShape m_rsBob;
 
+	sf::Shader m_RippleShader;
+
 	// IS the game currently playing
 	bool m_playing = false;
 

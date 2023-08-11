@@ -57,6 +57,16 @@ Engine::Engine()
 
 	m_PS.init(1000);
 
+
+	if (!Shader::isAvailable())
+	{
+		m_window.close();
+	}
+	else
+	{
+		// Load two shaders (1 vertex, 1 fragment)
+		m_RippleShader.loadFromFile("shaders/vertShader.vert", "shaders/rippleShader.frag");
+	}
 }
 
 void Engine::run()

@@ -4,13 +4,21 @@ void Engine::draw()
 {
 	m_window.clear(sf::Color::White);
 
+	// Update the shader parameters
+	m_RippleShader.setUniform("uTime", m_gameTimeTotal.asSeconds());
+
 	if (!m_splitScreen)
 	{
 		// switch to background view
 		m_window.setView(m_bgMainView);
 		// draw the background
-		m_window.draw(m_backgroundSprite);
+		//m_window.draw(m_backgroundSprite);
+		m_window.draw(m_backgroundSprite, &m_RippleShader);
+
+		
 		// switch to main view
+
+
 		m_window.setView(m_mainView);
 
 		// Draw the level
@@ -38,7 +46,8 @@ void Engine::draw()
 		// Switch to background view
 		m_window.setView(m_bgLeftView);
 		// draw the background
-		m_window.draw(m_backgroundSprite);
+		m_window.draw(m_backgroundSprite, &m_RippleShader);
+
 		// switch to left view
 		m_window.setView(m_leftView);
 
@@ -65,7 +74,8 @@ void Engine::draw()
 		// Switch to background view
 		m_window.setView(m_bgRightView);
 		// draw the background
-		m_window.draw(m_backgroundSprite);
+		m_window.draw(m_backgroundSprite, &m_RippleShader);
+
 		// switch to left view
 		m_window.setView(m_rightView);
 
