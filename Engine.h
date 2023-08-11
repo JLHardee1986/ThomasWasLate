@@ -8,13 +8,15 @@
 #include "Bob.h"
 #include "Thomas.h"
 #include "Hud.h"
-
+#include "ParticleSystem.h"
 class Engine
 {
 
 	bool m_fullscreen{ false };
 
 	TextureHolder th;
+
+	ParticleSystem m_PS;
 
 	// Thomas and his friend, Bob
 	Thomas m_thomas;

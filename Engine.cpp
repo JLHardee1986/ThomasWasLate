@@ -55,6 +55,8 @@ Engine::Engine()
 	// Load the texture for the background vertex array
 	m_textureTiles = TextureHolder::getTexture("graphics/tiles_sheet.png");
 
+	m_PS.init(1000);
+
 }
 
 void Engine::run()
